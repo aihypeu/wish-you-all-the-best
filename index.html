@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#dcf0fa">
+<meta name="color-scheme" content="light">
+<title>Happy birthday พ่อหนุ่ย 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Mitr:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#dcf0fa;--bg2:#e4f6ec;--ink:#6b4358;--card:#ffffffe6;--pink:#f4a6c4;--mint:#a8e0cf;--sky:#b5d4f5}
+
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;min-height:100vh;min-height:100dvh;font-family:'Mali','Sarabun',system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-color:var(--bg1);text-align:center;overflow-x:hidden}
+main{max-width:520px;margin:0 auto;padding:28px 18px 60px;position:relative;z-index:2}
+h1{font-family:'Mitr','Mali',sans-serif;font-weight:500;font-size:clamp(2rem,9vw,3rem);margin:8px 0 4px;color:var(--pink);text-shadow:0 3px 0 var(--bg2)}
+button{font:inherit;cursor:pointer;color:inherit;touch-action:manipulation}
+button:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.btn{background:var(--pink);color:#5a2a45;border:0;border-radius:99px;padding:12px 26px;font-weight:700;font-size:1.1rem;box-shadow:0 5px 0 #dd93b0;transition:transform .1s}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #dd93b0}
+.btn.alt{background:var(--mint);box-shadow:0 5px 0 #4fb59b;color:#124}
+.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:20px 0}
+#cake{width:min(320px,82%);margin:18px auto 0;display:block;overflow:visible}
+.flame{transform-origin:center bottom;animation:fl .5s infinite alternate;transition:opacity .4s}
+.flame.off{opacity:0;animation:none}
+@keyframes fl{to{transform:scale(1.15,.9) rotate(4deg)}}
+#hint{min-height:1.6em;font-weight:600;margin:6px 0}
+#ov{position:fixed;top:0;right:0;bottom:0;left:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));background:#6b435859;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);overscroll-behavior:contain;opacity:0;pointer-events:none;transition:opacity .6s}
+#ov.show{opacity:1;pointer-events:auto}
+#wish{width:100%;max-width:420px;max-height:100%;overflow:auto;background:var(--card);border-radius:26px;padding:24px 22px;line-height:1.9;font-size:1.12rem;box-shadow:0 8px 30px #f4a6c466;transform:translateY(24px) scale(.96);transition:transform .6s}
+#ov.show #wish{transform:none}
+#wish{position:relative}
+#close{position:absolute;top:4px;right:4px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--ink);opacity:.55;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center}
+#close:hover{opacity:1;background:#f4a6c433}
+#wish h2{font-family:'Mitr',sans-serif;font-weight:500;color:var(--pink);margin:0 0 8px;font-size:1.4rem}
+#wish p{margin:0;white-space:pre-line}
+.photo{width:min(240px,72%);aspect-ratio:1;margin:0 auto 16px;border-radius:16px;overflow:hidden;border:6px solid #fff;box-shadow:0 6px 18px #b5d4f580;background:#fde6ef;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.photo img{width:100%;height:100%;object-fit:cover}
+#wish .from{margin-top:14px;font-weight:700}
+.balloon{position:fixed;bottom:-120px;width:46px;height:58px;border-radius:50% 50% 48% 48%;opacity:.8;z-index:1;animation:up linear forwards;pointer-events:none}
+.balloon:after{content:"";position:absolute;left:50%;top:100%;width:1px;height:50px;background:var(--ink);opacity:.4}
+@keyframes up{to{transform:translateY(-130vh) translateX(30px)}}
+canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:20}
+@media (prefers-reduced-motion:reduce){.flame,.balloon{animation:none}#ov,#wish{transition:none}}
+body.lock{overflow:hidden}
+@media (max-height:520px){#cake{width:min(180px,48%)}h1{margin-top:0}}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+<main>
+  <h1>Happy Birthdayy</h1>
+
+  <svg id="cake" viewBox="0 0 300 260" aria-label="เค้กวันเกิด">
+    <ellipse cx="150" cy="240" rx="130" ry="14" fill="#0002"/>
+    <rect x="40" y="150" width="220" height="86" rx="18" fill="#fbdce8"/>
+    <rect x="70" y="95" width="160" height="64" rx="16" fill="#fdf1cf"/>
+    <path d="M40 168q18 16 36 0t36 0 36 0 36 0 36 0 36 0v-10H40z" fill="#fff"/>
+    <path d="M70 112q13 14 26 0t26 0 26 0 26 0 26 0v-9H70z" fill="#f6bcd2"/>
+    <circle cx="90" cy="205" r="7" fill="#f4a6c4"/><circle cx="150" cy="212" r="7" fill="#a8e0cf"/><circle cx="210" cy="205" r="7" fill="#fbd98a"/>
+    <g>
+      <g><rect x="107" y="62" width="10" height="34" rx="3" fill="#b5d4f5"/><path class="flame" d="M112 36q-9 12 0 22q9-10 0-22z" fill="#fbc977"/></g>
+      <g><rect x="145" y="55" width="10" height="41" rx="3" fill="#f4a6c4"/><path class="flame" d="M150 28q-9 12 0 22q9-10 0-22z" fill="#fbc977"/></g>
+      <g><rect x="183" y="62" width="10" height="34" rx="3" fill="#a8e0cf"/><path class="flame" d="M188 36q-9 12 0 22q9-10 0-22z" fill="#fbc977"/></g>
+    </g>
+  </svg>
+  <p id="hint">ขอพรในใจ๋ แล้วกดเป่าเทียนตวยหนา 🕯️</p>
+
+  <div class="row">
+    <button class="btn" id="blow">เป่าเทียน</button>
+    
+  </div>
+
+  <div id="ov" inert><section id="wish" role="dialog" aria-modal="true" aria-label="คำอวยพร">
+    <h2>from ไอหมอก to พ่อหนุ่ย 💖</h2>
+    <div class="photo" id="photo"></div>
+    <p id="wtext"></p>
+    <p class="from" id="wfrom"></p>
+    <button id="close" aria-label="ปิด">✕</button>
+  </section></div>
+</main>
+
+<script>
+/* ===== ข้อความอวยพร ===== */
+const WISH = "สุขสันต์วันเกิดหนาเจ้า คิดว่าลืมล่ะสิ TT น้องไอขอหื้อพ่อมีความสุขนัก ๆ สุขภาพร่างกายแข็งแรง น่ารักกับลูก ๆ แบบนี้ตลอดไปเลย";
+const PHOTO = "photo.jpg"; 
+const FROM = "รักป้อหนุ่ยหนา อิอิ"; 
+/* ====================================== */
+const $=s=>document.querySelector(s);
+
+/* เพลง Happy Birthday (สังเคราะห์เสียงด้วย Web Audio) */
+let ac,playing=false,timer,gen=0;
+const N={G4:392,A4:440,B4:493.88,C5:523.25,D5:587.33,E5:659.25,F5:698.46,G5:783.99};
+const tune=[['G4',.75],['G4',.25],['A4',1],['G4',1],['C5',1],['B4',2],['G4',.75],['G4',.25],['A4',1],['G4',1],['D5',1],['C5',2],['G4',.75],['G4',.25],['G5',1],['E5',1],['C5',1],['B4',1],['A4',1],['F5',.75],['F5',.25],['E5',1],['C5',1],['D5',1],['C5',2]];
+function ctx(){ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();return ac}
+function beep(f,d){try{const a=ctx(),o=a.createOscillator(),g=a.createGain(),t=a.currentTime;o.type='triangle';o.frequency.value=f;
+ g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.22,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d+.2);
+ o.connect(g).connect(a.destination);o.start(t);o.stop(t+d+.25)}catch(e){}}
+function play(id){
+  const beat=.5;let t=0;
+  tune.forEach(([k,b])=>{setTimeout(()=>{if(playing&&id===gen)beep(N[k],b*beat*.95)},t*beat*1000);t+=b});
+  timer=setTimeout(()=>{playing=false},(t+1)*beat*1000);
+}
+function setMusic(on){
+  playing=on;gen++;clearTimeout(timer);
+  
+  if(on){try{ctx()}catch(e){}play(gen)}
+}
+
+
+/* เป่าเทียน -> ขึ้นคำอวยพร */
+let blown=false,lastFocus=null;
+function openWish(){lastFocus=document.activeElement;const o=$('#ov');o.removeAttribute('inert');o.classList.add('show');document.body.classList.add('lock');setTimeout(()=>$('#close').focus({preventScroll:true}),50)}
+function closeWish(){const o=$('#ov');o.classList.remove('show');o.setAttribute('inert','');document.body.classList.remove('lock');if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true})}
+$('#close').onclick=closeWish;
+$('#ov').onclick=e=>{if(e.target.id==='ov')closeWish()};
+addEventListener('keydown',e=>{if(e.key==='Escape')closeWish()});
+$('#blow').onclick=()=>{
+  const fl=document.querySelectorAll('.flame');
+  if(!blown){
+    fl.forEach(f=>f.classList.add('off'));
+    $('#hint').textContent='เย่! ขอหื้อพรเป็นจริงหนาเจ้า 🌟';
+    $('#blow').textContent='จุดเทียนใหม่อีกรอบบ';
+    $('#wtext').textContent=WISH;$('#wfrom').textContent=FROM;
+    if(PHOTO){const im=new Image();im.alt='รูปพ่อ';im.decoding='async';im.onload=()=>{$('#photo').textContent='';$('#photo').appendChild(im)};im.src=PHOTO}im.decoding='async';im.onerror=()=>{$('#photo').style.display='none'};
+    setTimeout(()=>{if(blown)openWish()},900);
+    burst(innerWidth/2,innerHeight*.35,innerWidth<500?90:140);
+    setMusic(true);
+  }else{
+    fl.forEach(f=>f.classList.remove('off'));closeWish();
+    $('#ov').classList.remove('show');
+    $('#hint').textContent='อย่าลืมขอพรในใจ แล้วกดเป่าเทียนตวยหนา 🕯️';
+    $('#blow').textContent='เป่าเทียน';
+  }
+  blown=!blown;
+};
+
+im.decoding='async';im.onerror=()=>{$('#photo').style.display='none'};
+
+/* confetti */
+const cv=$('#cv'),g=cv.getContext('2d');let P=[];
+function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener('resize',size);
+function burst(x,y,n){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const cs=['#f4a6c4','#fbd98a','#a8e0cf','#b5d4f5','#fff'];
+  for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=3+Math.random()*7;
+   P.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-4,r:3+Math.random()*4,c:cs[i%5],l:100+Math.random()*60,rot:Math.random()*6})}
+  if(P.length===n)loop();
+}
+function loop(){
+  g.clearRect(0,0,cv.width,cv.height);
+  P=P.filter(p=>p.l>0);
+  P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.vx*=.99;p.l--;p.rot+=.2;
+   g.save();g.translate(p.x,p.y);g.rotate(p.rot);g.fillStyle=p.c;g.fillRect(-p.r,-p.r/2,p.r*2,p.r);g.restore()});
+  if(P.length)requestAnimationFrame(loop);else g.clearRect(0,0,cv.width,cv.height);
+}
+
+/* ลูกโป่ง */
+function balloon(){
+  if(document.hidden)return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const b=document.createElement('div');b.className='balloon';
+  b.style.left=Math.random()*95+'vw';
+  b.style.background=['#f4a6c4','#fbd98a','#a8e0cf','#b5d4f5'][Math.floor(Math.random()*4)];
+  b.style.animationDuration=(9+Math.random()*7)+'s';
+  document.body.appendChild(b);setTimeout(()=>b.remove(),17000);
+}
+setInterval(balloon,1800);balloon();
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing){playing=false;gen++;clearTimeout(timer)}});
+</script>
+</body>
+</html>
