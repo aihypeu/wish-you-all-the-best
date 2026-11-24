@@ -126,7 +126,7 @@ $('#blow').onclick=()=>{
     $('#hint').textContent='เย่! ขอหื้อพรเป็นจริงหนาเจ้า 🌟';
     $('#blow').textContent='จุดเทียนใหม่อีกรอบบ';
     $('#wtext').textContent=WISH;$('#wfrom').textContent=FROM;
-    if(PHOTO){const im=new Image();im.alt='รูปพ่อ';im.decoding='async';im.onload=()=>{$('#photo').textContent='';$('#photo').appendChild(im)};im.src=PHOTO}im.decoding='async';im.onerror=()=>{$('#photo').style.display='none'};
+    if(PHOTO){const im=new Image();im.alt='รูปพ่อ';im.decoding='async';im.onload=()=>{$('#photo').textContent='';$('#photo').appendChild(im)};im.src=PHOTO}
     setTimeout(()=>{if(blown)openWish()},900);
     burst(innerWidth/2,innerHeight*.35,innerWidth<500?90:140);
     setMusic(true);
@@ -138,8 +138,6 @@ $('#blow').onclick=()=>{
   }
   blown=!blown;
 };
-
-im.decoding='async';im.onerror=()=>{$('#photo').style.display='none'};
 
 /* confetti */
 const cv=$('#cv'),g=cv.getContext('2d');let P=[];
